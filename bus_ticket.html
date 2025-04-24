@@ -24,6 +24,7 @@
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 8px;
+      text-align: left; /* 将日期左对齐 */
     }
     .date-status {
       font-size: 14px;
@@ -97,7 +98,7 @@
 <body>
 
 <div class="card">
-  <div class="title">2025年04月21日 <span class="status-wait">待使用</span></div>
+  <div class="title" id="date-display">加载中...</div> <!-- 动态显示日期 -->
   <div class="route">
     <strong>17:10</strong> 玉泉校区侧通 楼北侧<br>
     教师9号班车 → 紫金港校区
@@ -128,6 +129,10 @@
     const second = beijing.getSeconds().toString().padStart(2, '0');
 
     document.getElementById("now-time").innerText = `${month}月${day}日 ${hour}:${minute}:${second}`;
+
+    // 更新日期为东八区日期
+    const dateDisplay = `${year}年${month}月${day}日`;
+    document.getElementById("date-display").innerText = dateDisplay; // 设置日期显示
   }
 
   setInterval(updateBeijingTime, 1000);
