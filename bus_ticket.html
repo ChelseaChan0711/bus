@@ -73,7 +73,7 @@
 <body>
 
 <div class="card">
-  <div class="title">2025年04月24日 <span class="status-wait"> <span class="status-wait">待使用</span></div>
+  <div class="title">2025年04月21日 <span class="status-wait">待使用</span></div>
   <div class="route">
     <strong>17:10</strong> 玉泉校区侧通 楼北侧<br>
     教师9号班车 → 紫金港校区
@@ -84,7 +84,7 @@
 
   <!-- 插入静态二维码图片 -->
   <div class="qrcode">
-    <img src="https://chelseachan0711.github.io/bus/frame.png" alt="二维码" width="180" />
+    <img src="https://chelseachan.github.io/frame.png" alt="二维码" width="180" />
   </div>
 
   <button class="btn" onclick="confirmBoarding()">确认上车</button>
@@ -103,7 +103,7 @@
     const minute = beijing.getMinutes().toString().padStart(2, '0');
     const second = beijing.getSeconds().toString().padStart(2, '0');
 
-    document.getElementById("now-time").innerText = `${month}月${day}日 ${hour}:${minute}:${second}`;
+    document.getElementById("now-time").innerText = ${month}月${day}日 ${hour}:${minute}:${second};
   }
 
   setInterval(updateBeijingTime, 1000);
