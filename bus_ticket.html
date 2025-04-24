@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>校巴预约凭证</title>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <style>
     body {
       font-family: "Microsoft YaHei", sans-serif;
@@ -82,11 +81,11 @@
 
   <div class="time-now" id="now-time">加载中...</div>
   <div class="hint">当前时段趟次</div>
-  <div class="qrcode">
-  <img src="https://qrco.de/bfwBFK" alt="二维码" width="180" />
-</div>
 
-  <div class="qrcode" id="qrcode"></div>
+  <!-- 插入静态二维码图片 -->
+  <div class="qrcode">
+    <img src="https://example.com/qrcode.png" alt="二维码" width="180" />
+  </div>
 
   <button class="btn" onclick="confirmBoarding()">确认上车</button>
   <div class="footer">如有三次违约将禁止您使用此预约服务</div>
@@ -110,12 +109,6 @@
   setInterval(updateBeijingTime, 1000);
   updateBeijingTime();
 
-  // 生成二维码（此处为演示，可替换为动态数据）
-  const qrContent = "ZJU Shuttle Ticket\nFrom: 玉泉\nTo: 紫金港\nTime: 17:10\nDate: 2025-04-21";
-  QRCode.toCanvas(document.getElementById('qrcode'), qrContent, {
-    width: 180
-  });
-
   function confirmBoarding() {
     alert("上车确认成功！");
   }
@@ -123,3 +116,4 @@
 
 </body>
 </html>
+
