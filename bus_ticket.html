@@ -2,48 +2,49 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>校巴预约凭证</title>
   <style>
     body {
       font-family: "Microsoft YaHei", sans-serif;
       background-color: #f4f4f4;
       margin: 0;
-      padding: 20px;
+      padding: 0;
     }
     .card {
-      max-width: 400px;
+      max-width: 90%;
       margin: 0 auto;
       background: white;
       border-radius: 12px;
-      padding: 25px;
+      padding: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       text-align: center;
     }
     .title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .date-status {
-      font-size: 16px;
-      margin-bottom: 10px;
+      font-size: 14px;
+      margin-bottom: 8px;
     }
     .status-wait {
       color: white;
       background-color: red;
       padding: 2px 6px;
       border-radius: 6px;
-      font-size: 14px;
+      font-size: 12px;
       vertical-align: middle;
     }
     .route {
-      font-size: 16px;
+      font-size: 14px;
       margin: 10px 0;
     }
     .time-now {
-      font-size: 22px;
+      font-size: 18px;
       font-weight: bold;
-      margin-top: 15px;
+      margin-top: 10px;
     }
     .hint {
       color: green;
@@ -52,6 +53,8 @@
     }
     .qrcode {
       margin: 20px auto;
+      max-width: 180px;
+      display: block;
     }
     .btn {
       background-color: #007aff;
@@ -67,6 +70,27 @@
       font-size: 12px;
       color: gray;
       margin-top: 15px;
+    }
+
+    /* 手机设备样式 */
+    @media (max-width: 600px) {
+      .card {
+        padding: 15px;
+      }
+      .title {
+        font-size: 16px;
+      }
+      .date-status,
+      .route {
+        font-size: 14px;
+      }
+      .time-now {
+        font-size: 16px;
+      }
+      .btn {
+        font-size: 14px;
+        padding: 10px 0;
+      }
     }
   </style>
 </head>
@@ -84,7 +108,7 @@
 
   <!-- 插入静态二维码图片 -->
   <div class="qrcode">
-    <img src="https://chelseachan.github.io/frame.png" alt="二维码" width="180" />
+    <img src="https://raw.githubusercontent.com/ChelseaChan0711/bus/51949273eb37d287df019670e947d10accb81612/frame.png" alt="二维码" width="180" />
   </div>
 
   <button class="btn" onclick="confirmBoarding()">确认上车</button>
@@ -103,7 +127,7 @@
     const minute = beijing.getMinutes().toString().padStart(2, '0');
     const second = beijing.getSeconds().toString().padStart(2, '0');
 
-    document.getElementById("now-time").innerText = ${month}月${day}日 ${hour}:${minute}:${second};
+    document.getElementById("now-time").innerText = `${month}月${day}日 ${hour}:${minute}:${second}`;
   }
 
   setInterval(updateBeijingTime, 1000);
@@ -113,6 +137,9 @@
     alert("上车确认成功！");
   }
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
