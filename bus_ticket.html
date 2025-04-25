@@ -19,12 +19,15 @@
       padding: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .title {
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 8px;
-      text-align: left; /* 将日期左对齐 */
+      text-align: left; /* 左对齐 */
     }
     .date-status {
       font-size: 14px;
@@ -73,20 +76,53 @@
       margin-top: 15px;
     }
 
+    /* 样式改进 */
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .arrow-line {
+      width: 120px;
+      height: 2px;
+      background-color: blue;
+    }
+
+    .arrow-text {
+      font-size: 14px;
+      color: black;
+      margin: 0 10px;
+    }
+
+    .arrow-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .route-left,
+    .route-right {
+      font-size: 14px;
+      text-align: left;
+      margin: 0 20px;
+    }
+
     /* 手机设备样式 */
     @media (max-width: 600px) {
       .card {
         padding: 15px;
       }
       .title {
-        font-size:26px;
+        font-size: 16px;
       }
       .date-status,
       .route {
-        font-size: 32px;
+        font-size: 14px;
       }
       .time-now {
-        font-size: 36px;
+        font-size: 16px;
       }
       .btn {
         font-size: 14px;
@@ -98,10 +134,23 @@
 <body>
 
 <div class="card">
-  <div class="title" id="date-display">加载中...</div> <!-- 动态显示日期 -->
-  <div class="route">
-    <strong>17:10</strong> 玉泉校区侧通 楼北侧<br>
-    教师9号班车 → 紫金港校区
+  <div class="title" id="date-display">加载中...</div>
+  
+  <div class="route-wrapper">
+    <div class="route-left">
+      <strong>17:10</strong> <br>
+      玉泉校区侧通 楼北侧
+    </div>
+    <div class="arrow-wrapper">
+      <div class="arrow">
+        <div class="arrow-line"></div>
+        <div class="arrow-text">教师9号班车<br>运行时刻表</div>
+        <div class="arrow-line"></div>
+      </div>
+    </div>
+    <div class="route-right">
+      紫金港校区
+    </div>
   </div>
 
   <div class="time-now" id="now-time">加载中...</div>
@@ -146,5 +195,3 @@
 </body>
 </html>
 
-</body>
-</html>
